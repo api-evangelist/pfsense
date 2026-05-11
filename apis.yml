@@ -1,0 +1,93 @@
+aid: pfsense
+name: pfSense
+description: >-
+  pfSense is an open-source firewall and router operating system based on
+  FreeBSD, developed and maintained by Netgate, providing stateful firewall,
+  routing, VPN (IPsec, OpenVPN, WireGuard), captive portal, traffic shaping,
+  and IDS/IPS capabilities for home and enterprise networks. It is available
+  as pfSense Community Edition (CE) and pfSense Plus, both managed via a web
+  UI. The unofficial pfSense-pkg-RESTAPI package adds a REST and GraphQL API
+  with 200+ endpoints under /api/v2 for automating firewall management,
+  authenticated via local users, API keys, or JWT.
+type: Index
+image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+tags:
+  - Firewall
+  - Network Security
+  - Router
+  - VPN
+  - Open Source
+  - FreeBSD
+  - Netgate
+url: >-
+  https://raw.githubusercontent.com/api-evangelist/pfsense/refs/heads/main/apis.yml
+created: '2026-05-11'
+modified: '2026-05-11'
+specificationVersion: '0.19'
+apis:
+  - aid: pfsense:rest-api-package
+    name: pfSense REST API (pfSense-pkg-RESTAPI)
+    description: >-
+      Community-maintained REST and GraphQL API package for pfSense CE and
+      pfSense Plus exposing 200+ endpoints under /api/v2 for firewall,
+      interface, service, user, and system management. Authentication
+      supports local user credentials, API keys, and JWT bearer tokens; the
+      base URL is the pfSense instance's own hostname.
+    humanURL: https://pfrest.org/
+    baseURL: https://pfsense.local/api/v2
+    tags:
+      - Firewall API
+      - Network Automation
+      - REST
+      - GraphQL
+    properties:
+      - type: Documentation
+        url: https://pfrest.org/
+      - type: API Documentation
+        url: https://pfrest.org/api-docs/
+      - type: GitHub Repository
+        url: https://github.com/jaredhendrickson13/pfsense-api
+      - type: Contributing
+        url: https://pfrest.org/CONTRIBUTING/
+
+common:
+  - type: Website
+    url: https://www.pfsense.org/
+  - type: Documentation
+    url: https://docs.netgate.com/pfsense/en/latest/
+  - type: Pricing
+    url: https://www.netgate.com/pfsense-plus-software
+  - type: Download
+    url: https://www.pfsense.org/download/
+  - type: GitHub Organization
+    url: https://github.com/pfsense
+  - type: Vendor
+    url: https://www.netgate.com/
+features:
+  - name: Stateful Firewall
+    description: >-
+      pf-based stateful packet filtering with aliases, schedules, and
+      floating rules for granular network policy.
+  - name: VPN Services
+    description: >-
+      Built-in IPsec, OpenVPN, and WireGuard VPN servers and clients for
+      site-to-site and remote access connectivity.
+  - name: Routing and NAT
+    description: >-
+      Static and dynamic routing (FRR, BGP, OSPF via packages) plus full
+      NAT/PAT/1:1 mapping configuration.
+  - name: Traffic Shaping and QoS
+    description: >-
+      Limiters and HFSC/CBQ/PRIQ queues to prioritize traffic and enforce
+      bandwidth policies per host or service.
+  - name: IDS/IPS
+    description: >-
+      Snort and Suricata packages for intrusion detection and prevention,
+      with rule subscriptions and per-interface configuration.
+  - name: REST/GraphQL API
+    description: >-
+      Optional pfSense-pkg-RESTAPI package providing programmatic
+      configuration of nearly all pfSense subsystems.
+maintainers:
+  - FN: Kin Lane
+    email: kin@apievangelist.com
