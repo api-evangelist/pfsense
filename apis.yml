@@ -45,7 +45,7 @@ apis:
         url: https://pfrest.org/
       - type: API Documentation
         url: https://pfrest.org/api-docs/
-      - type: GitHub Repository
+      - type: GitHubRepository
         url: https://github.com/jaredhendrickson13/pfsense-api
       - type: Contributing
         url: https://pfrest.org/CONTRIBUTING/
@@ -59,7 +59,7 @@ common:
     url: https://www.netgate.com/pfsense-plus-software
   - type: Download
     url: https://www.pfsense.org/download/
-  - type: GitHub Organization
+  - type: GitHubOrganization
     url: https://github.com/pfsense
   - type: Vendor
     url: https://www.netgate.com/
