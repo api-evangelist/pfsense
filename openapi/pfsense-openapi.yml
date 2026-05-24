@@ -1,0 +1,352 @@
+openapi: 3.1.0
+info:
+  title: pfSense REST API (pfSense-pkg-RESTAPI)
+  description: |
+    Community-maintained REST and GraphQL API package for pfSense CE and
+    pfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,
+    interface, service, user, and system management. Authentication supports
+    HTTP Basic, X-API-Key header, and JWT bearer tokens obtained from
+    POST /api/v2/auth/jwt.
+
+    Only a representative subset of the pfSense REST API surface
+    (auth, firewall aliases, firewall rules, diagnostics) is modeled here.
+    See the documentation linked under externalDocs for the full catalog.
+  version: "2.0.0"
+  contact:
+    name: pfSense REST API documentation
+    url: https://pfrest.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+externalDocs:
+  description: pfSense-pkg-RESTAPI documentation
+  url: https://pfrest.org/
+servers:
+  - url: https://{pfSenseHost}/api/v2
+    description: pfSense host running pfSense-pkg-RESTAPI.
+    variables:
+      pfSenseHost:
+        default: pfsense.local
+        description: Hostname or IP of the pfSense instance.
+tags:
+  - name: Authentication
+    description: Obtain JWT bearer tokens.
+  - name: Firewall Aliases
+    description: Manage firewall aliases.
+  - name: Firewall Rules
+    description: Manage firewall rules.
+  - name: Firewall Apply
+    description: Apply pending firewall changes.
+  - name: Diagnostics
+    description: Diagnostic operations against the pfSense instance.
+security:
+  - basicAuth: []
+  - apiKeyAuth: []
+  - bearerAuth: []
+paths:
+  /auth/jwt:
+    post:
+      tags: [Authentication]
+      summary: Obtain a JWT bearer token
+      description: |
+        Authenticate as a local database user to obtain a signed JWT bearer
+        token. Tokens default to one hour of validity; renew by calling this
+        endpoint again.
+      operationId: createJwtToken
+      security:
+        - basicAuth: []
+      responses:
+        "200":
+          description: JWT issued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: JWT bearer token.
+        "401":
+          description: Authentication failed.
+
+  /firewall/aliases:
+    get:
+      tags: [Firewall Aliases]
+      summary: List firewall aliases
+      operationId: listFirewallAliases
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+        - $ref: "#/components/parameters/SortBy"
+        - $ref: "#/components/parameters/SortOrder"
+      responses:
+        "200":
+          description: Array of firewall aliases.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/FirewallAlias"
+
+  /firewall/alias:
+    get:
+      tags: [Firewall Aliases]
+      summary: Get a single firewall alias
+      operationId: getFirewallAlias
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A firewall alias.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/FirewallAlias"
+    post:
+      tags: [Firewall Aliases]
+      summary: Create a firewall alias
+      operationId: createFirewallAlias
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FirewallAlias"
+      responses:
+        "200":
+          description: Firewall alias created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/FirewallAlias"
+    patch:
+      tags: [Firewall Aliases]
+      summary: Update a firewall alias
+      operationId: patchFirewallAlias
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FirewallAlias"
+      responses:
+        "200":
+          description: Firewall alias updated.
+    delete:
+      tags: [Firewall Aliases]
+      summary: Delete a firewall alias
+      operationId: deleteFirewallAlias
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Firewall alias deleted.
+
+  /firewall/rules:
+    get:
+      tags: [Firewall Rules]
+      summary: List firewall rules
+      operationId: listFirewallRules
+      parameters:
+        - $ref: "#/components/parameters/Limit"
+        - $ref: "#/components/parameters/Offset"
+      responses:
+        "200":
+          description: Array of firewall rules.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: "#/components/schemas/FirewallRule"
+
+  /firewall/rule:
+    get:
+      tags: [Firewall Rules]
+      summary: Get a single firewall rule
+      operationId: getFirewallRule
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: A firewall rule.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: "#/components/schemas/FirewallRule"
+    post:
+      tags: [Firewall Rules]
+      summary: Create a firewall rule
+      operationId: createFirewallRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FirewallRule"
+      responses:
+        "200":
+          description: Firewall rule created.
+    patch:
+      tags: [Firewall Rules]
+      summary: Update a firewall rule
+      operationId: patchFirewallRule
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FirewallRule"
+      responses:
+        "200":
+          description: Firewall rule updated.
+    delete:
+      tags: [Firewall Rules]
+      summary: Delete a firewall rule
+      operationId: deleteFirewallRule
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Firewall rule deleted.
+
+  /firewall/apply:
+    post:
+      tags: [Firewall Apply]
+      summary: Apply pending firewall changes
+      operationId: applyFirewall
+      responses:
+        "200":
+          description: Pending firewall changes applied.
+
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: |
+        HTTP Basic auth with a pfSense local database username and password.
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: |
+        API key generated through the webConfigurator or API endpoints. Keys
+        inherit the permissions of the user that issued them.
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: |
+        JWT bearer token obtained from POST /api/v2/auth/jwt. Tokens default
+        to one hour of validity.
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        default: 0
+      description: Maximum number of results.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        default: 0
+      description: Skip the first N results.
+    SortBy:
+      in: query
+      name: sort_by
+      schema:
+        type: string
+      description: Field name to sort by.
+    SortOrder:
+      in: query
+      name: sort_order
+      schema:
+        type: string
+        enum: [SORT_ASC, SORT_DESC]
+  schemas:
+    FirewallAlias:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          enum: [host, network, port, url, url_ports, urltable, urltable_ports]
+        descr:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        detail:
+          type: array
+          items:
+            type: string
+    FirewallRule:
+      type: object
+      properties:
+        id:
+          type: integer
+        type:
+          type: string
+          enum: [pass, block, reject]
+        interface:
+          type: array
+          items:
+            type: string
+        ipprotocol:
+          type: string
+          enum: [inet, inet6, inet46]
+        protocol:
+          type: string
+        source:
+          type: object
+          additionalProperties: true
+        destination:
+          type: object
+          additionalProperties: true
+        descr:
+          type: string
+        disabled:
+          type: boolean
