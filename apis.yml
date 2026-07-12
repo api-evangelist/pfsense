@@ -53,6 +53,12 @@ apis:
   - url: graphql/pfsense-graphql.md
     type: GraphQL
 common:
+- type: VulnerabilityDisclosure
+  url: security/pfsense-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/pfsense-domain-security.yml
+- type: Authentication
+  url: authentication/pfsense-authentication.yml
 - type: Website
   url: https://www.pfsense.org/
 - type: Documentation
@@ -65,6 +71,8 @@ common:
   url: https://github.com/pfsense
 - type: Vendor
   url: https://www.netgate.com/
+- url: https://www.netgate.com/blog/rss.xml
+  type: Blog
 features:
 - name: Stateful Firewall
   description: >-

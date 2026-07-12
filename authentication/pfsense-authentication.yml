@@ -1,0 +1,34 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/pfsense-openapi.yml
+summary:
+  types:
+  - apiKey
+  - http
+  api_key_in:
+  - header
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: HTTP Basic auth with a pfSense local database username and password.
+  sources:
+  - openapi/pfsense-openapi.yml
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  description: |-
+    API key generated through the webConfigurator or API endpoints. Keys
+    inherit the permissions of the user that issued them.
+  sources:
+  - openapi/pfsense-openapi.yml
+- name: bearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: |-
+    JWT bearer token obtained from POST /api/v2/auth/jwt. Tokens default
+    to one hour of validity.
+  sources:
+  - openapi/pfsense-openapi.yml
