@@ -53,6 +53,8 @@ apis:
   - url: graphql/pfsense-graphql.md
     type: GraphQL
 common:
+- type: AgenticAccess
+  url: agentic-access/pfsense-agentic-access.yml
 - type: VulnerabilityDisclosure
   url: security/pfsense-vulnerability-disclosure.yml
 - type: DomainSecurity
