@@ -1,0 +1,223 @@
+openapi: 3.1.0
+info:
+  title: pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Aliases API
+  description: 'Community-maintained REST and GraphQL API package for pfSense CE and
+
+    pfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,
+
+    interface, service, user, and system management. Authentication supports
+
+    HTTP Basic, X-API-Key header, and JWT bearer tokens obtained from
+
+    POST /api/v2/auth/jwt.
+
+
+    Only a representative subset of the pfSense REST API surface
+
+    (auth, firewall aliases, firewall rules, diagnostics) is modeled here.
+
+    See the documentation linked under externalDocs for the full catalog.
+
+    '
+  version: 2.0.0
+  contact:
+    name: pfSense REST API documentation
+    url: https://pfrest.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{pfSenseHost}/api/v2
+  description: pfSense host running pfSense-pkg-RESTAPI.
+  variables:
+    pfSenseHost:
+      default: pfsense.local
+      description: Hostname or IP of the pfSense instance.
+security:
+- basicAuth: []
+- apiKeyAuth: []
+- bearerAuth: []
+tags:
+- name: Firewall Aliases
+  description: Manage firewall aliases.
+paths:
+  /firewall/aliases:
+    get:
+      tags:
+      - Firewall Aliases
+      summary: List firewall aliases
+      operationId: listFirewallAliases
+      parameters:
+      - $ref: '#/components/parameters/Limit'
+      - $ref: '#/components/parameters/Offset'
+      - $ref: '#/components/parameters/SortBy'
+      - $ref: '#/components/parameters/SortOrder'
+      responses:
+        '200':
+          description: Array of firewall aliases.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      $ref: '#/components/schemas/FirewallAlias'
+  /firewall/alias:
+    get:
+      tags:
+      - Firewall Aliases
+      summary: Get a single firewall alias
+      operationId: getFirewallAlias
+      parameters:
+      - in: query
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: A firewall alias.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FirewallAlias'
+    post:
+      tags:
+      - Firewall Aliases
+      summary: Create a firewall alias
+      operationId: createFirewallAlias
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FirewallAlias'
+      responses:
+        '200':
+          description: Firewall alias created.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    $ref: '#/components/schemas/FirewallAlias'
+    patch:
+      tags:
+      - Firewall Aliases
+      summary: Update a firewall alias
+      operationId: patchFirewallAlias
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/FirewallAlias'
+      responses:
+        '200':
+          description: Firewall alias updated.
+    delete:
+      tags:
+      - Firewall Aliases
+      summary: Delete a firewall alias
+      operationId: deleteFirewallAlias
+      parameters:
+      - in: query
+        name: id
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Firewall alias deleted.
+components:
+  parameters:
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        default: 0
+      description: Maximum number of results.
+    SortBy:
+      in: query
+      name: sort_by
+      schema:
+        type: string
+      description: Field name to sort by.
+    Offset:
+      in: query
+      name: offset
+      schema:
+        type: integer
+        default: 0
+      description: Skip the first N results.
+    SortOrder:
+      in: query
+      name: sort_order
+      schema:
+        type: string
+        enum:
+        - SORT_ASC
+        - SORT_DESC
+  schemas:
+    FirewallAlias:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        type:
+          type: string
+          enum:
+          - host
+          - network
+          - port
+          - url
+          - url_ports
+          - urltable
+          - urltable_ports
+        descr:
+          type: string
+        address:
+          type: array
+          items:
+            type: string
+        detail:
+          type: array
+          items:
+            type: string
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth with a pfSense local database username and password.
+
+        '
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: 'API key generated through the webConfigurator or API endpoints. Keys
+
+        inherit the permissions of the user that issued them.
+
+        '
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT bearer token obtained from POST /api/v2/auth/jwt. Tokens default
+
+        to one hour of validity.
+
+        '
+externalDocs:
+  description: pfSense-pkg-RESTAPI documentation
+  url: https://pfrest.org/

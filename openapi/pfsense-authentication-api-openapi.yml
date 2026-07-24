@@ -1,0 +1,103 @@
+openapi: 3.1.0
+info:
+  title: pfSense REST API (pfSense-pkg-RESTAPI) Authentication API
+  description: 'Community-maintained REST and GraphQL API package for pfSense CE and
+
+    pfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,
+
+    interface, service, user, and system management. Authentication supports
+
+    HTTP Basic, X-API-Key header, and JWT bearer tokens obtained from
+
+    POST /api/v2/auth/jwt.
+
+
+    Only a representative subset of the pfSense REST API surface
+
+    (auth, firewall aliases, firewall rules, diagnostics) is modeled here.
+
+    See the documentation linked under externalDocs for the full catalog.
+
+    '
+  version: 2.0.0
+  contact:
+    name: pfSense REST API documentation
+    url: https://pfrest.org/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0
+servers:
+- url: https://{pfSenseHost}/api/v2
+  description: pfSense host running pfSense-pkg-RESTAPI.
+  variables:
+    pfSenseHost:
+      default: pfsense.local
+      description: Hostname or IP of the pfSense instance.
+security:
+- basicAuth: []
+- apiKeyAuth: []
+- bearerAuth: []
+tags:
+- name: Authentication
+  description: Obtain JWT bearer tokens.
+paths:
+  /auth/jwt:
+    post:
+      tags:
+      - Authentication
+      summary: Obtain a JWT bearer token
+      description: 'Authenticate as a local database user to obtain a signed JWT bearer
+
+        token. Tokens default to one hour of validity; renew by calling this
+
+        endpoint again.
+
+        '
+      operationId: createJwtToken
+      security:
+      - basicAuth: []
+      responses:
+        '200':
+          description: JWT issued.
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      token:
+                        type: string
+                        description: JWT bearer token.
+        '401':
+          description: Authentication failed.
+components:
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: 'HTTP Basic auth with a pfSense local database username and password.
+
+        '
+    apiKeyAuth:
+      type: apiKey
+      in: header
+      name: X-API-Key
+      description: 'API key generated through the webConfigurator or API endpoints. Keys
+
+        inherit the permissions of the user that issued them.
+
+        '
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: 'JWT bearer token obtained from POST /api/v2/auth/jwt. Tokens default
+
+        to one hour of validity.
+
+        '
+externalDocs:
+  description: pfSense-pkg-RESTAPI documentation
+  url: https://pfrest.org/
