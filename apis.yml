@@ -10,7 +10,19 @@ description: >-
   with 200+ endpoints under /api/v2 for automating firewall management,
   authenticated via local users, API keys, or JWT.
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/pfsense.png
 tags:
 - Firewall
 - Network Security
@@ -28,11 +40,10 @@ apis:
 - aid: pfsense:rest-api-package
   name: pfSense REST API (pfSense-pkg-RESTAPI)
   description: >-
-    Community-maintained REST and GraphQL API package for pfSense CE and
-    pfSense Plus exposing 200+ endpoints under /api/v2 for firewall,
-    interface, service, user, and system management. Authentication
-    supports local user credentials, API keys, and JWT bearer tokens; the
-    base URL is the pfSense instance's own hostname.
+    Community-maintained REST and GraphQL API package for pfSense CE and pfSense Plus exposing 200+ endpoints
+    under /api/v2 for firewall, interface, service, user, and system management. Authentication supports
+    local user credentials, API keys, and JWT bearer tokens; the base URL is the pfSense instance's own
+    hostname.
   humanURL: https://pfrest.org/
   baseURL: https://pfsense.local/api/v2
   tags:
@@ -49,9 +60,48 @@ apis:
     url: https://github.com/jaredhendrickson13/pfsense-api
   - type: Contributing
     url: https://pfrest.org/CONTRIBUTING/
-
   - url: graphql/pfsense-graphql.md
     type: GraphQL
+- aid: pfsense:pfsense-authentication-api
+  name: pfSense Authentication API
+  description: Obtain JWT bearer tokens.
+  humanURL: https://pfrest.org/
+  baseURL: https://pfsense.local/api/v2
+  tags:
+  - Authentication
+  properties:
+  - type: OpenAPI
+    url: openapi/pfsense-authentication-api-openapi.yml
+- aid: pfsense:pfsense-firewall-aliases-api
+  name: pfSense Firewall Aliases API
+  description: Manage firewall aliases.
+  humanURL: https://pfrest.org/
+  baseURL: https://pfsense.local/api/v2
+  tags:
+  - Firewall Aliases
+  properties:
+  - type: OpenAPI
+    url: openapi/pfsense-firewall-aliases-api-openapi.yml
+- aid: pfsense:pfsense-firewall-apply-api
+  name: pfSense Firewall Apply API
+  description: Apply pending firewall changes.
+  humanURL: https://pfrest.org/
+  baseURL: https://pfsense.local/api/v2
+  tags:
+  - Firewall Apply
+  properties:
+  - type: OpenAPI
+    url: openapi/pfsense-firewall-apply-api-openapi.yml
+- aid: pfsense:pfsense-firewall-rules-api
+  name: pfSense Firewall Rules API
+  description: Manage firewall rules.
+  humanURL: https://pfrest.org/
+  baseURL: https://pfsense.local/api/v2
+  tags:
+  - Firewall Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/pfsense-firewall-rules-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/pfsense-agentic-access.yml
