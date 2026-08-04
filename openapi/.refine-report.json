@@ -1,0 +1,20 @@
+{
+  "provider": "pfsense",
+  "sources": [
+    "pfsense-authentication-api-openapi.yml",
+    "pfsense-firewall-aliases-api-openapi.yml",
+    "pfsense-firewall-apply-api-openapi.yml",
+    "pfsense-firewall-rules-api-openapi.yml"
+  ],
+  "outputs": [
+    "pfsense-authentication-api-openapi.yml",
+    "pfsense-firewall-aliases-api-openapi.yml",
+    "pfsense-firewall-apply-api-openapi.yml",
+    "pfsense-firewall-rules-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
