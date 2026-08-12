@@ -103,6 +103,9 @@ apis:
   - type: OpenAPI
     url: openapi/pfsense-firewall-rules-api-openapi.yml
 common:
+- type: License
+  name: Apache-2.0
+  url: https://github.com/jaredhendrickson13/pfsense-api/blob/master/LICENSE
 - type: AgenticAccess
   url: agentic-access/pfsense-agentic-access.yml
 - type: VulnerabilityDisclosure
