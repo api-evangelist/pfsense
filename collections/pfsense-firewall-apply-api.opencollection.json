@@ -1,0 +1,36 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Apply API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Firewall Apply",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Apply pending firewall changes",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{pfSenseHost}/api/v2/firewall/apply"
+          },
+          "docs": "Apply pending firewall changes"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

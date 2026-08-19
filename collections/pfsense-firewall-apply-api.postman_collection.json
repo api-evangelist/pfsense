@@ -1,0 +1,135 @@
+{
+  "item": [
+    {
+      "id": "1a5389bd-2316-4a38-a6e3-3af97af57df5",
+      "name": "Firewall Apply",
+      "description": {
+        "content": "Apply pending firewall changes.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "35d9bf55-b48a-49af-be60-7b0b61df7773",
+          "name": "Apply pending firewall changes",
+          "request": {
+            "name": "Apply pending firewall changes",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "apply"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "adbb846f-56d7-4a81-bc27-1771011c3734",
+              "name": "Pending firewall changes applied.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "apply"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname or IP of the pfSense instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "pfsense.local",
+      "key": "pfSenseHost"
+    },
+    {
+      "type": "string",
+      "value": "https://{{pfSenseHost}}/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "9bdc0c49-42f0-4a46-ae34-0f82127f0118",
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Apply API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained REST and GraphQL API package for pfSense CE and\npfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,\ninterface, service, user, and system management. Authentication supports\nHTTP Basic, X-API-Key header, and JWT bearer tokens obtained from\nPOST /api/v2/auth/jwt.\n\nOnly a representative subset of the pfSense REST API surface\n(auth, firewall aliases, firewall rules, diagnostics) is modeled here.\nSee the documentation linked under externalDocs for the full catalog.\n\n\nContact Support:\n Name: pfSense REST API documentation",
+      "type": "text/plain"
+    }
+  }
+}

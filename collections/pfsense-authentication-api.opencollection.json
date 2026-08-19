@@ -1,0 +1,41 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Authentication",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Obtain a JWT bearer token",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{pfSenseHost}/api/v2/auth/jwt",
+            "auth": {
+              "type": "basic",
+              "username": "{{username}}",
+              "password": "{{password}}"
+            }
+          },
+          "docs": "Authenticate as a local database user to obtain a signed JWT bearer\ntoken. Tokens default to one hour of validity; renew by calling this\nendpoint again.\n"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

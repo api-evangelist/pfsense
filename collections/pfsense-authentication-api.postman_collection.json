@@ -1,0 +1,207 @@
+{
+  "item": [
+    {
+      "id": "31b3147b-baaa-4a42-a5dc-e8f03ae8368e",
+      "name": "Authentication",
+      "description": {
+        "content": "Obtain JWT bearer tokens.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f2ca2d16-5e58-4914-af0e-b1212f7b462f",
+          "name": "Obtain a JWT bearer token",
+          "request": {
+            "name": "Obtain a JWT bearer token",
+            "description": {
+              "content": "Authenticate as a local database user to obtain a signed JWT bearer\ntoken. Tokens default to one hour of validity; renew by calling this\nendpoint again.\n",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "auth",
+                "jwt"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "basic",
+              "basic": [
+                {
+                  "key": "username",
+                  "value": "{{basicAuthUsername}}"
+                },
+                {
+                  "key": "password",
+                  "value": "{{basicAuthPassword}}"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "f2ea4f08-22d0-49ce-9c86-fbd6a8276c52",
+              "name": "JWT issued.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "jwt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"token\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "63f65ffb-e16d-46da-8655-40d1d1445265",
+              "name": "Authentication failed.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "auth",
+                    "jwt"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname or IP of the pfSense instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "pfsense.local",
+      "key": "pfSenseHost"
+    },
+    {
+      "type": "string",
+      "value": "https://{{pfSenseHost}}/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "93afaeac-1118-4f11-98de-c4c11b77ff92",
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained REST and GraphQL API package for pfSense CE and\npfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,\ninterface, service, user, and system management. Authentication supports\nHTTP Basic, X-API-Key header, and JWT bearer tokens obtained from\nPOST /api/v2/auth/jwt.\n\nOnly a representative subset of the pfSense REST API surface\n(auth, firewall aliases, firewall rules, diagnostics) is modeled here.\nSee the documentation linked under externalDocs for the full catalog.\n\n\nContact Support:\n Name: pfSense REST API documentation",
+      "type": "text/plain"
+    }
+  }
+}

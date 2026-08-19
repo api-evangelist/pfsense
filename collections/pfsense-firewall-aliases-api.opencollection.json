@@ -1,0 +1,127 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Aliases API",
+    "version": "2.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Firewall Aliases",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "List firewall aliases",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{pfSenseHost}/api/v2/firewall/aliases",
+            "params": [
+              {
+                "name": "limit",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results."
+              },
+              {
+                "name": "offset",
+                "value": "",
+                "type": "query",
+                "description": "Skip the first N results."
+              },
+              {
+                "name": "sort_by",
+                "value": "",
+                "type": "query",
+                "description": "Field name to sort by."
+              },
+              {
+                "name": "sort_order",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "List firewall aliases"
+        },
+        {
+          "info": {
+            "name": "Get a single firewall alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://{pfSenseHost}/api/v2/firewall/alias",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Get a single firewall alias"
+        },
+        {
+          "info": {
+            "name": "Create a firewall alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://{pfSenseHost}/api/v2/firewall/alias",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Create a firewall alias"
+        },
+        {
+          "info": {
+            "name": "Update a firewall alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://{pfSenseHost}/api/v2/firewall/alias",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Update a firewall alias"
+        },
+        {
+          "info": {
+            "name": "Delete a firewall alias",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://{pfSenseHost}/api/v2/firewall/alias",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "Delete a firewall alias"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

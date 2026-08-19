@@ -1,0 +1,598 @@
+{
+  "item": [
+    {
+      "id": "a1f16a0e-b2d5-4969-8bd3-d6dcc3ab547d",
+      "name": "Firewall Aliases",
+      "description": {
+        "content": "Manage firewall aliases.",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "012e935e-4a4c-4efd-8efe-0912c2bf2c69",
+          "name": "List firewall aliases",
+          "request": {
+            "name": "List firewall aliases",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "aliases"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "limit",
+                  "value": "0",
+                  "description": "Maximum number of results."
+                },
+                {
+                  "disabled": false,
+                  "key": "offset",
+                  "value": "0",
+                  "description": "Skip the first N results."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_by",
+                  "value": "<string>",
+                  "description": "Field name to sort by."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort_order",
+                  "value": "<string>"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "00df5d00-704e-41ed-9d4b-57a061eff1ec",
+              "name": "Array of firewall aliases.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "aliases"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "limit",
+                      "value": "0"
+                    },
+                    {
+                      "key": "offset",
+                      "value": "0"
+                    },
+                    {
+                      "key": "sort_by",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "sort_order",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": [\n    {\n      \"id\": 5051,\n      \"name\": \"string\",\n      \"type\": \"urltable_ports\",\n      \"descr\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"detail\": [\n        \"string\",\n        \"string\"\n      ]\n    },\n    {\n      \"id\": 4469,\n      \"name\": \"string\",\n      \"type\": \"url\",\n      \"descr\": \"string\",\n      \"address\": [\n        \"string\",\n        \"string\"\n      ],\n      \"detail\": [\n        \"string\",\n        \"string\"\n      ]\n    }\n  ]\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "beb6e9ae-becf-45c6-9278-97141c121fb8",
+          "name": "Get a single firewall alias",
+          "request": {
+            "name": "Get a single firewall alias",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "alias"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c71d3ca-84b2-4f2a-8b41-bdd9fad8b889",
+              "name": "A firewall alias.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "alias"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 8348,\n    \"name\": \"string\",\n    \"type\": \"url_ports\",\n    \"descr\": \"string\",\n    \"address\": [\n      \"string\",\n      \"string\"\n    ],\n    \"detail\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "092841b0-9289-467b-b3c8-a2ec848f63bc",
+          "name": "Create a firewall alias",
+          "request": {
+            "name": "Create a firewall alias",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "alias"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"address\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"detail\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c43c0ee8-cda6-4c22-bbdf-6b6bd73eaff0",
+              "name": "Firewall alias created.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "alias"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"address\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"detail\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"data\": {\n    \"id\": 8348,\n    \"name\": \"string\",\n    \"type\": \"url_ports\",\n    \"descr\": \"string\",\n    \"address\": [\n      \"string\",\n      \"string\"\n    ],\n    \"detail\": [\n      \"string\",\n      \"string\"\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f0b90e60-e5d8-4a6e-ab3f-1744fd713966",
+          "name": "Update a firewall alias",
+          "request": {
+            "name": "Update a firewall alias",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "alias"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"address\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"detail\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "e3e15796-81d3-49ca-9bc9-8490bc7532a2",
+              "name": "Firewall alias updated.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "alias"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"id\": \"<integer>\",\n  \"name\": \"<string>\",\n  \"type\": \"<string>\",\n  \"descr\": \"<string>\",\n  \"address\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"detail\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c19134a6-d0b3-42d2-9bc4-f2ce5219df91",
+          "name": "Delete a firewall alias",
+          "request": {
+            "name": "Delete a firewall alias",
+            "description": {},
+            "url": {
+              "path": [
+                "firewall",
+                "alias"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "id",
+                  "value": "<integer>",
+                  "description": "(Required) "
+                }
+              ],
+              "variable": [
+                {
+                  "description": "Hostname or IP of the pfSense instance.",
+                  "type": "any",
+                  "value": "{{pfSenseHost}}",
+                  "key": "pfSenseHost"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1b2119ec-b703-41d9-8be3-92994783230a",
+              "name": "Firewall alias deleted.",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "firewall",
+                    "alias"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "id",
+                      "value": "<integer>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "Hostname or IP of the pfSense instance.",
+                      "type": "any",
+                      "value": "{{pfSenseHost}}",
+                      "key": "pfSenseHost"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "Hostname or IP of the pfSense instance.",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "pfsense.local",
+      "key": "pfSenseHost"
+    },
+    {
+      "type": "string",
+      "value": "https://{{pfSenseHost}}/api/v2",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a96caabf-d797-47e7-876b-74798297ce74",
+    "name": "pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Aliases API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Community-maintained REST and GraphQL API package for pfSense CE and\npfSense Plus that exposes 200+ endpoints under /api/v2 for firewall,\ninterface, service, user, and system management. Authentication supports\nHTTP Basic, X-API-Key header, and JWT bearer tokens obtained from\nPOST /api/v2/auth/jwt.\n\nOnly a representative subset of the pfSense REST API surface\n(auth, firewall aliases, firewall rules, diagnostics) is modeled here.\nSee the documentation linked under externalDocs for the full catalog.\n\n\nContact Support:\n Name: pfSense REST API documentation",
+      "type": "text/plain"
+    }
+  }
+}
