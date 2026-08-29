@@ -10,6 +10,20 @@ description: >-
   with 200+ endpoints under /api/v2 for automating firewall management,
   authenticated via local users, API keys, or JWT.
 type: Index
+deliveryModel:
+  model: open-core
+  license: Apache-2.0
+  open_source: true
+  commercial: true
+  callable_host: false
+  label: Open core · an OSS project plus a commercial hosted product
+  confidence: high
+  source:
+  - license
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
@@ -111,6 +125,12 @@ apis:
   - type: OpenAPI
     url: openapi/pfsense-firewall-rules-api-openapi.yml
 common:
+- type: IssueTracker
+  url: https://github.com/jaredhendrickson13/pfsense-api/issues
+- type: Releases
+  url: https://github.com/jaredhendrickson13/pfsense-api/releases
+- type: ContributionGuide
+  url: https://github.com/pfrest/pfSense-pkg-RESTAPI/blob/master/docs/CONTRIBUTING.md
 - type: License
   name: Apache-2.0
   url: https://github.com/jaredhendrickson13/pfsense-api/blob/master/LICENSE
