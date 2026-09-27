@@ -43,7 +43,7 @@ tags:
 - Network Security
 - Router
 - VPN
-- Open-Source
+- Open Source
 - FreeBSD
 - Netgate
 tags_raw:
@@ -54,6 +54,7 @@ tags_raw:
 - Open Source
 - FreeBSD
 - Netgate
+- Open-Source
 url: >-
   https://raw.githubusercontent.com/api-evangelist/pfsense/refs/heads/main/apis.yml
 created: '2026-05-11'
