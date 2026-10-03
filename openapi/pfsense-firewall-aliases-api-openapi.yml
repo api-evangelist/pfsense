@@ -130,6 +130,13 @@ components:
       schema:
         type: string
       description: Field name to sort by.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        default: 0
+      description: Maximum number of results.
     SortOrder:
       in: query
       name: sort_order
@@ -138,13 +145,6 @@ components:
         enum:
         - SORT_ASC
         - SORT_DESC
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        default: 0
-      description: Maximum number of results.
     Offset:
       in: query
       name: offset

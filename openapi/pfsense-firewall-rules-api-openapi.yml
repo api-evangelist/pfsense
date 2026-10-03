@@ -149,13 +149,6 @@ components:
         disabled:
           type: boolean
   parameters:
-    Limit:
-      in: query
-      name: limit
-      schema:
-        type: integer
-        default: 0
-      description: Maximum number of results.
     Offset:
       in: query
       name: offset
@@ -163,6 +156,13 @@ components:
         type: integer
         default: 0
       description: Skip the first N results.
+    Limit:
+      in: query
+      name: limit
+      schema:
+        type: integer
+        default: 0
+      description: Maximum number of results.
   securitySchemes:
     basicAuth:
       type: http
