@@ -1,0 +1,34 @@
+slug: pfsense
+provider: pfSense
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Software & Technology
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 2
+edges:
+- tag: Firewall Rules
+  spec_file: pfsense-firewall-rules-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.75
+  evidence: POST /firewall/rule createFirewallRule Create a firewall rule; schema FirewallRule
+  reason: CRUD over stateful firewall rules on a security appliance realises cybersecurity control management;
+    evidence does not clearly pin a single L2 (security architecture vs. threat prevention).
+- tag: Firewall Aliases
+  spec_file: pfsense-firewall-aliases-api-openapi.yml
+  capability_id: BC-620
+  capability_id_l1: BC-620
+  capability_name: Cybersecurity Management
+  confidence: 0.7
+  evidence: POST /firewall/alias createFirewallAlias Create a firewall alias; schema FirewallAlias
+  reason: Firewall alias objects are configuration constructs for firewall rule definition on a security
+    appliance, supporting network security control management; L2 is ambiguous between security architecture
+    and IT infrastructure so only L1 is asserted.

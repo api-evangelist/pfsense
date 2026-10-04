@@ -127,6 +127,9 @@ apis:
   - type: OpenAPI
     url: openapi/pfsense-firewall-rules-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/pfsense-capability-edges.yml
+  name: pfSense Business Capability Map
 - type: IssueTracker
   url: https://github.com/jaredhendrickson13/pfsense-api/issues
 - type: Releases
