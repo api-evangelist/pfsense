@@ -124,12 +124,6 @@ paths:
           description: Firewall alias deleted.
 components:
   parameters:
-    SortBy:
-      in: query
-      name: sort_by
-      schema:
-        type: string
-      description: Field name to sort by.
     Limit:
       in: query
       name: limit
@@ -152,6 +146,12 @@ components:
         type: integer
         default: 0
       description: Skip the first N results.
+    SortBy:
+      in: query
+      name: sort_by
+      schema:
+        type: string
+      description: Field name to sort by.
   schemas:
     FirewallAlias:
       type: object
