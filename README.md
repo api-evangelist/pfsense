@@ -1,4 +1,4 @@
-# pfSense (pfsense)
+# pfSense
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,62 +66,113 @@
 
 pfSense is an open-source firewall and router operating system based on FreeBSD, developed and maintained by Netgate, providing stateful firewall, routing, VPN (IPsec, OpenVPN, WireGuard), captive portal, traffic shaping, and IDS/IPS capabilities for home and enterprise networks. It is available as pfSense Community Edition (CE) and pfSense Plus, both managed via a web UI. The unofficial pfSense-pkg-RESTAPI package adds a REST and GraphQL API with 200+ endpoints under /api/v2 for automating firewall management, authenticated via local users, API keys, or JWT.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/pfsense/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/pfsense/refs/heads/main/apis.yml)
+**Areas:** Firewall · Network Security · Router · VPN · Open Source · FreeBSD · Netgate
 
-## Scope
+## pfSense on APIs.io
 
-- **Type:** Index
+Everything profiled for pfSense is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/pfsense/](https://apis.io/providers/pfsense/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (5)
 
-- Firewall
-- Network Security
-- Router
-- VPN
-- Open Source
-- FreeBSD
-- Netgate
+- [pfSense REST API (pfSense-pkg-RESTAPI)](https://apis.io/apis/pfsense/rest-api-package/) — Community-maintained REST and GraphQL API package for pfSense CE and pfSense Plus exposing 200+ endpoints under /api/v2 for firewall, interface, service,…
+- [pfSense Authentication API](https://apis.io/apis/pfsense/pfsense-authentication-api/) — Obtain JWT bearer tokens.
+- [pfSense Firewall Aliases API](https://apis.io/apis/pfsense/pfsense-firewall-aliases-api/) — Manage firewall aliases.
+- [pfSense Firewall Apply API](https://apis.io/apis/pfsense/pfsense-firewall-apply-api/) — Apply pending firewall changes.
+- [pfSense Firewall Rules API](https://apis.io/apis/pfsense/pfsense-firewall-rules-api/) — Manage firewall rules.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-11
-- **Modified:** 2026-05-11
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### pfSense REST API (pfSense-pkg-RESTAPI)
+GraphQL schemas.
 
-Community-maintained REST and GraphQL API package for pfSense CE and pfSense Plus exposing 200+ endpoints under /api/v2 for firewall, interface, service, user, and system management. Authentication supports local user credentials, API keys, and JWT bearer tokens; the base URL is the pfSense instance's own hostname.
+- [pfSense GraphQL API](https://apis.io/graphqls/pfsense/pfsense-graphql/)
 
-- **Human URL:** [https://pfrest.org/](https://pfrest.org/)
-- **Base URL:** `https://pfsense.local/api/v2`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Firewall API
-- Network Automation
-- REST
-- GraphQL
+- [Pfsense Agentic Access](https://apis.io/agentic-access/pfsense/pfsense-agentic-access/)
 
-#### Properties
+#### Collections (5)
 
-- [Documentation](https://pfrest.org/)
-- [A P I  Documentation](https://pfrest.org/api-docs/)
-- [GitHub Repository](https://github.com/jaredhendrickson13/pfsense-api)
-- [Contributing](https://pfrest.org/CONTRIBUTING/)
-- [Postman Collection](collections/pfsense.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/pfsense.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-## Common Properties
+- [pfSense REST API (pfSense-pkg-RESTAPI)](https://apis.io/collections/pfsense/open-pfsense/)
+- [pfSense REST API (pfSense-pkg-RESTAPI) Authentication API](https://apis.io/collections/pfsense/open-pfsense-authentication-api/)
+- [pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Aliases API](https://apis.io/collections/pfsense/open-pfsense-firewall-aliases-api/)
+- [pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Apply API](https://apis.io/collections/pfsense/open-pfsense-firewall-apply-api/)
+- [pfSense REST API (pfSense-pkg-RESTAPI) Authentication Firewall Rules API](https://apis.io/collections/pfsense/open-pfsense-firewall-rules-api/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Pfsense Authentication](https://apis.io/security/pfsense/pfsense-authentication/)
+- [Pfsense Domain Security](https://apis.io/security/pfsense/pfsense-domain-security/)
+- [Pfsense Vulnerability Disclosure](https://apis.io/security/pfsense/pfsense-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
 - [Website](https://www.pfsense.org/)
 - [Documentation](https://docs.netgate.com/pfsense/en/latest/)
 - [Pricing](https://www.netgate.com/pfsense-plus-software)
-- [Download](https://www.pfsense.org/download/)
-- [GitHub Organization](https://github.com/pfsense)
-- [Vendor](https://www.netgate.com/)
+- [Blog](https://www.netgate.com/blog/rss.xml)
+- [GitHub](https://github.com/pfsense)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
+**Kin Score 30.9** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 66.1 |
+| Contract quality | 47.2 |
+| Contract governance | 0.0 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 31.0 |
+| Access clarity | 10.5 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 17.6** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/pfsense/](https://apis.io/providers/pfsense/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for pfSense: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/pfsense/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
